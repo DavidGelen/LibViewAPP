@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LibViewAPP</string>
+
+    <string name="title_draw_pie_chart">饼图</string>
+</resources>
