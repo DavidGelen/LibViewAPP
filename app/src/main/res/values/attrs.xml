@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SwipeMenuLayout">
+        <attr name="isLeftMenu" format="boolean" />
+        <attr name="enableParentLongClick" format="boolean" />
+        <attr name="expandRatio" format="float" />
+        <attr name="collapseRatio" format="float" />
+        <attr name="collapseDuration" format="integer" />
+        <attr name="expandDuration" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleView">
+        <attr name="circle_color" format="color" />
+    </declare-styleable>
+</resources>
