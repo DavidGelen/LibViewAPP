@@ -1,6 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <!-- 通用颜色：透明色 -->
+    <color name="transparent">#0000</color>
+    <drawable name="transparent">#0000</drawable>
+
+    <!-- 通用颜色：常用黑白色 -->
+    <color name="white">#FFFFFF</color>
+    <drawable name="white">#FFFFFF</drawable>
+    <color name="silver">#C0C0C0</color>
+    <drawable name="silver">#C0C0C0</drawable>
+    <color name="gray">#808080</color>
+    <drawable name="gray">#808080</drawable>
+    <color name="black">#000000</color>
+    <drawable name="black">#000000</drawable>
+
+    <!-- 通用颜色：常用彩色 -->
+    <color name="red">#FF0000</color>
+    <drawable name="red">#FF0000</drawable>
+    <color name="maroon">#800000</color>
+    <drawable name="maroon">#800000</drawable>
+    <color name="yellow">#FFFF00</color>
+    <drawable name="yellow">#FFFF00</drawable>
+    <color name="olive">#808000</color>
+    <drawable name="olive">#808000</drawable>
+    <color name="lime">#00FF00</color>
+    <drawable name="lime">#00FF00</drawable>
+    <color name="green">#008000</color>
+    <drawable name="green">#008000</drawable>
+    <color name="aqua">#00FFFF</color>
+    <drawable name="aqua">#00FFFF</drawable>
+    <color name="teal">#008080</color>
+    <drawable name="teal">#008080</drawable>
+    <color name="blue">#0000FF</color>
+    <drawable name="blue">#0000FF</drawable>
+    <color name="navy">#000080</color>
+    <drawable name="navy">#000080</drawable>
+    <color name="fuchsia">#FF00FF</color>
+    <drawable name="fuchsia">#FF00FF</drawable>
+    <color name="purple">#800080</color>
+    <drawable name="purple">#800080</drawable>
+
+    <!-- 专用颜色 -->
+    <color name="primary_green">#39b54a</color>
+    <drawable name="primary_green">#39b54a</drawable>
+    <color name="secondary_green">#0d6c29</color>
+    <drawable name="secondary_green">#0d6c29</drawable>
+    <color name="tertiary_green">#a6ce39</color>
+    <drawable name="tertiary_green">#a6ce39</drawable>
+    <color name="button_color_default">#22ac38</color>
+    <drawable name="button_color_default">#22ac38</drawable>
+    <color name="button_color_disabled">#7acd87</color>
+    <drawable name="button_color_disabled">#7acd87</drawable>
+    <color name="button_color_pressed">#10551b</color>
+    <drawable name="button_color_pressed">#10551b</drawable>
+    <color name="error_color">#b10d19</color>
+    <drawable name="error_color">#b10d19</drawable>
+    <color name="reminder_color">#9b7c56</color>
+    <drawable name="reminder_color">#9b7c56</drawable>
+    <color name="primary_text_color">#333333</color>
+    <drawable name="primary_text_color">#333333</drawable>
+    <color name="secondary_text_color">#929292</color>
+    <drawable name="secondary_text_color">#929292</drawable>
+    <color name="input_line_color">#929292</color>
+    <drawable name="input_line_color">#929292</drawable>
+    <color name="line_color">#ededed</color>
+    <drawable name="line_color">#ededed</drawable>
+    <color name="background_highlight_color">#f7f7f7</color>
+    <drawable name="background_highlight_color">#f7f7f7</drawable>
+    <color name="background_color">#ebeeeb</color>
+    <drawable name="background_color">#ebeeeb</drawable>
+    <color name="mask_color">#80000000</color>
+    <drawable name="mask_color">#80000000</drawable>
+
+    <color name="algae_green">#29d041</color>
+    <drawable name="algae_green">#80000000</drawable>
+
+    <color name="green_two">#1acc32</color>
+    <drawable name="green_two">#1acc32</drawable>
+
+    <color name="ButtonDisabledColor">#7acd87</color>
+    <drawable name="ButtonDisabledColor">#7acd87</drawable>
+    <drawable name="ButtonDefaultColor">#22ac38</drawable>
+
+    <color name="brownishGrey">#5c5c5c</color>
+    <drawable name="brownishGrey">#5c5c5c</drawable>
+
+    <!-- 新UI Color Start -->
+    <color name="PrimaryGreen">#39b54a</color>
+    <color name="DarkGreen">#0d6c29</color>
+    <color name="InputLineColor">#929292</color>
+    <color name="LineColor">#ededed</color>
+    <color name="LightGreen">#a6ce39</color>
+    <color name="ButtonDisableColor">#7acd87</color>
+    <color name="BackgroundColor1">#F5F5F5</color>
+    <color name="SearchBarColor">#d4d4d4</color>
+    <color name="ButtonPressColor">#10551b</color>
+    <color name="SecondaryTextColor">#929292</color>
+    <color name="PrimaryTextColor">#333333</color>
+    <color name="ArrowColor">#b6b6b6</color>
+    <color name="ErrorColor">#b10d19</color>
+    <color name="BackgroundColor2">#eff1ef</color>
+    <color name="ButtonDefaultColor">#22ac38</color>
+    <color name="MaskColor">#000000</color>
+    <color name="BackgroundColor3">#e5ede6</color>
+    <color name="BackgroundColor4">#f7f7f7</color>
+    <color name="BackgroundColor">#EBEEEB</color>
+    <color name="HightLight">#F7F7F7</color>
+    <color name="DarkGreyTextColor">#929292</color>
+
+    <color name="YellowColor">#9B7C56</color>
+    <color name="redTwo">#EBDADC</color>
+    <color name="mocha">#9B7C56</color>
+
+    <color name="treeGreen">#1f8b2e</color>
+    <color name="whiteTwo">#dedede</color>
+    <color name="whiteThree">#f2f2f2</color>
+    <color name="whiteFour">#d8d8d8</color>
+
+    <color name="whiteSix">#eeeeee</color>
+
+    <color name="greyishBrown">#4b4b4b</color>
+    <color name="scarlet">#db0011</color>
+    <color name="warmGreyTwo">#979797</color>
+    <color name="ReminderColor">#9C7D56</color>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
 </resources>

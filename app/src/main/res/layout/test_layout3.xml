@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.domain.standard.LibViewGroup3 xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:background="@color/colorAccent">
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="战三" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="战三阿萨德" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="战三儿童" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="日太阳能" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:text="似人非人温柔温柔" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="奥术大师大多" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="让他一人一人头" />
+
+</com.domain.standard.LibViewGroup3>

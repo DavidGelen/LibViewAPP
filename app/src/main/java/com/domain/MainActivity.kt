@@ -1,15 +1,14 @@
 package com.domain
 
 import android.animation.ObjectAnimator
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
+import android.view.ViewTreeObserver
+import android.view.animation.TranslateAnimation
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_layout.*
-import android.support.v4.view.ViewCompat.setTranslationY
-import android.util.Log
-import android.view.animation.TranslateAnimation
-import android.widget.Toast
 
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
@@ -19,6 +18,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.view_layout)
         groupLayout.setOnClickListener(this)
         textView.setOnClickListener(this)
+    }
+
+    override fun onPostCreate(savedInstanceState: Bundle?) {
+        super.onPostCreate(savedInstanceState)
+        textView2.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                val width = (textView2.width).toFloat()
+                //move8(width)
+                textView2.viewTreeObserver.removeGlobalOnLayoutListener(this)
+            }
+        })
     }
 
     override fun onClick(v: View?) {
@@ -87,5 +97,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         translateAnimation.duration = 2000;
         translateAnimation.fillAfter = true;// 保持移动后的状态
         textView.startAnimation(translateAnimation)
+    }
+
+    private fun move8(width: Float) {
+        Log.d("wwe","width -> $width")
+        val translateAnimation = TranslateAnimation(textView2.paddingLeft.toFloat(), -width,
+                0f, 0f)
+        translateAnimation.duration = 200000
+        translateAnimation.fillAfter = true// 保持移动后的状态
+        textView2.startAnimation(translateAnimation)
     }
 }

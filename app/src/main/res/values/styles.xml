@@ -8,4 +8,52 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TextAppearance">
+        <!-- If you have set fontFamily attribute then typeface attribute will be ignored. -->
+        <!-- serif/monospace/sans-serif/sans-serif-condensed/serif-monospace/sans-serif-smallcaps -->
+        <!--<item name="android:fontFamily">sans-serif</item>-->
+        <!-- normal/serif/sans/monospace -->
+        <!--<item name="android:typeface">normal</item>-->
+        <!-- normal/bold/italic -->
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/primary_text_color</item>
+        <item name="android:textColorHint">@color/primary_text_color</item>
+        <item name="android:textColorLink">@color/primary_text_color</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:shadowColor">@color/transparent</item>
+        <item name="android:shadowDx">0.0</item>
+        <item name="android:shadowDy">0.0</item>
+        <item name="android:shadowRadius">0.0</item>
+    </style>
+
+    <style name="text_style_01">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:background">@drawable/bg_gray</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#666666</item>
+    </style>
+
+    <style name="TextAppearance.Large">
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="TextAppearance.Medium">
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="TextAppearance.Small">
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="TextAppearance.Title">
+        <item name="android:textSize">18dp</item>
+    </style>
+
+    <style name="TextAppearance.Title.Large">
+        <item name="android:textSize">20dp</item>
+    </style>
+
 </resources>

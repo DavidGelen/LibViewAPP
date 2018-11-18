@@ -6,7 +6,8 @@
     <LinearLayout
         android:id="@+id/groupLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/textView"
@@ -17,6 +18,21 @@
             android:background="@color/colorAccent"
             android:text="我是TextView" />
     </LinearLayout>
+
+    <com.domain.widget.LibTextView
+        android:layout_marginTop="30dp"
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textAppearance="@style/TextAppearance.Large"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:text="我是TextView,我要发奋图强，我压迫世界顶级的可可粉翻开历史开发建设解放东路开放的世界的，离开静静的思考的时间。" />
 
 </RelativeLayout>
 

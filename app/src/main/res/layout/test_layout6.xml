@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.domain.widget.CustomeFlexLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="30dp">
+
+    <TextView
+        style="@style/text_style_01"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:text="再见这群菜" />
+
+    <TextView
+        style="@style/text_style_01"
+        android:layout_gravity="center"
+        android:text="I wanna say goodbye" />
+
+    <TextView
+        style="@style/text_style_01"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="再见这群坑比" />
+
+    <TextView
+        style="@style/text_style_01"
+        android:text="I wanna a new life" />
+
+    <TextView
+        style="@style/text_style_01"
+        android:text="只想拿个首胜" />
+
+    <TextView
+        style="@style/text_style_01"
+        android:text="就跪到了现在" />
+
+    <TextView
+        style="@style/text_style_01"
+        android:text="再见这" />
+
+    <TextView
+        style="@style/text_style_01"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:text="小学生"
+
+        />
+
+    <TextView
+        style="@style/text_style_01"
+        android:layout_gravity="bottom"
+        android:text="充斥的时代"
+
+        />
+
+    <TextView
+        style="@style/text_style_01"
+        android:layout_gravity="center"
+        android:text="总有人" />
+
+    <TextView
+        style="@style/text_style_01"
+        android:text="秒选亚索" />
+
+    <TextView
+        style="@style/text_style_01"
+        android:layout_gravity="center"
+        android:text="看谁" />
+
+    <TextView
+        style="@style/text_style_01"
+        android:layout_gravity="bottom"
+        android:text="都是菜" />
+
+    <TextView
+        style="@style/text_style_01"
+        android:text="谁知送完一血" />
+
+    <TextView
+        style="@style/text_style_01"
+        android:text="就说拜拜" />
+
+
+</com.domain.widget.CustomeFlexLayout>
