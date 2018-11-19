@@ -29,118 +29,72 @@ public class LibViewGroup5 extends ViewGroup {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        int withMode = MeasureSpec.getMode(widthMeasureSpec);
-        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        //测量所有的子view
+        measureChildren(widthMeasureSpec, heightMeasureSpec);
 
-        //LibViewGroup5的测量出的宽
-        int withSpecSize = MeasureSpec.getSize(widthMeasureSpec);
+        if (getChildCount() == 0) {
+            setMeasuredDimension(0, 0);
+        } else {
+            //父布局的宽度
+            int measuredWidth = getMeasuredWidth();
+            //当前摆放view的总宽度
+            int currentWidth = 0;
+            //当前摆放view的总高度
+            int currentHeight = getChildAt(0).getHeight();
+            //当前行view的最大高度
+            int currentLineMaxHeight = 0;
 
-        //LibViewGroup5的测量出的高
-        int heightSpecSize = MeasureSpec.getSize(heightMeasureSpec);
+            for (int i = 0; i < getChildCount(); i++) {
+                View child = getChildAt(i);
 
-        //用来保存一行的宽高
-        int lineWidth = 0, lineHeight = 0;
+                if (currentLineMaxHeight < child.getMeasuredHeight()) {
+                    currentLineMaxHeight = child.getMeasuredHeight();
+                }
 
-        //测量出来的宽高
-        int width = 0, height = 0;
-
-        int childCount = getChildCount();
-        if(childCount == 0) {
-            setMeasuredDimension(0,0);
-            return;
-        }
-
-        for (int i = 0; i < childCount; i++) {
-            View childView = getChildAt(i);
-
-            //测量每一个子控件的宽高
-            measureChild(childView, widthMeasureSpec, heightMeasureSpec);
-
-            //获取MarginLayoutParams对象
-            MarginLayoutParams params = (MarginLayoutParams) childView.getLayoutParams();
-
-            //此时子控件的宽高
-            int childWidth = childView.getMeasuredWidth() + params.leftMargin + params.rightMargin;
-            int childHeight = childView.getMeasuredHeight() + params.topMargin + params.bottomMargin;
-
-            //判断当前这个子view的宽是否超过限定的宽度
-            if (lineWidth + childWidth > withSpecSize) {
-                //换行
-                //宽度取最大的
-                width = Math.max(lineWidth, childHeight);
-
-                //重新记录下一行的宽度
-                lineWidth = childWidth;
-
-                //累加高度
-                height += lineHeight;
-                //记录下一行的高度
-                lineHeight = childHeight;
-            } else {
-                lineWidth += childWidth;
-                //行高取最大值
-                lineHeight = Math.max(lineHeight, childHeight);
+                if (measuredWidth < currentWidth + child.getMeasuredWidth()) {
+                    currentWidth = 0;
+                    currentHeight = currentHeight + currentLineMaxHeight;
+                } else {
+                    currentWidth = currentWidth + child.getMeasuredWidth();
+                }
             }
-            if (i == childCount - 1) {
-                //在最后一行时的判断
-                width = Math.max(width, lineWidth);
-                height += lineHeight;
-            }
+
+            setMeasuredDimension(measuredWidth, currentHeight);
         }
-        setMeasuredDimension(withMode == MeasureSpec.EXACTLY ? withSpecSize : width,
-                heightMode == MeasureSpec.EXACTLY ? heightSpecSize : height);
     }
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        //父控件的宽度(包含padding)
-        int width = getWidth();
-        //子控件在父控件中x轴方向上能显示的最大宽度
-        int maxWidth = width - getPaddingRight();
-        //最开始的位置的
-        int baseLeft = getPaddingLeft();
-        int baseTop = getPaddingTop();
-        //当前的距左边和顶部的距离
-        int currentLeft = baseLeft;
-        int currentTop = baseTop;
-        //表示当前view的left、top、right、bottom的位置
-        int viewL = 0, viewT = 0, viewR = 0, viewB = 0;
-        //子控件的个数
-        int childCount = getChildCount();
-        //用来保存要换行的上一个子view的高度
-        int lastChildViewHeight = 0;
-        for (int i = 0; i < childCount; i++) {
-            //当前子view
-            View childAt = getChildAt(i);
-            if (childAt.getVisibility() == View.GONE) {
-                continue;
+        //父布局的宽度
+        int measuredWidth = getMeasuredWidth();
+        //父布局的高度
+        int measuredHeight = getMeasuredHeight();
+        //当前摆放view的总宽度
+        int currentWidth = 0;
+        //当前摆放view的总高度
+        int currentHeight = 0;
+        //当前行view的最大高度
+        int currentLineMaxHeight = 0;
+
+        for (int i = 0; i < getChildCount(); i++) {
+            View child = getChildAt(i);
+
+            if (currentLineMaxHeight < child.getMeasuredHeight()) {
+                currentLineMaxHeight = child.getMeasuredHeight();
             }
-            //当前子view的MarginLayoutParams对象
-            MarginLayoutParams params = (MarginLayoutParams) childAt.getLayoutParams();
-            //子view实际的宽高包括margin
-            int childWidth = childAt.getMeasuredWidth() + params.leftMargin + params.rightMargin;
-            int childHeight = childAt.getMeasuredHeight() + params.topMargin + params.bottomMargin;
-            if (currentLeft + childWidth > maxWidth) {//换行
-                //此时距顶部距离累加
-                currentTop += lastChildViewHeight;
-                viewL = baseLeft + params.leftMargin;
-                viewT = currentTop + params.topMargin;
-                viewR = viewL + childAt.getMeasuredWidth();
-                viewB = viewT + childAt.getMeasuredHeight();
-                //由于此时是新的一行，所以currentLeft要从新开始
-                currentLeft = baseLeft + childWidth;
-            } else {
-                viewL = currentLeft + params.leftMargin;
-                viewT = currentTop + params.topMargin;
-                viewR = viewL + childAt.getMeasuredWidth();
-                viewB = viewT + childAt.getMeasuredHeight();
-                //当前距左边距离累加
-                currentLeft += childWidth;
+
+            if (measuredWidth < currentWidth + child.getMeasuredWidth()) {
+                currentWidth = 0;
+                currentHeight = currentHeight + currentLineMaxHeight;
             }
-            lastChildViewHeight = childHeight;
-            childAt.layout(viewL, viewT, viewR, viewB);
+
+            child.layout(currentWidth, currentHeight, currentWidth + child.getMeasuredWidth(), child.getMeasuredHeight() + currentHeight);
+
+            if (measuredWidth >= currentWidth + child.getMeasuredWidth()) {
+                currentWidth = currentWidth + child.getMeasuredWidth();
+            }
         }
+
     }
 
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {

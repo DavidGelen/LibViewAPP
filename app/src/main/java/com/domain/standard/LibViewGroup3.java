@@ -48,24 +48,15 @@ public class LibViewGroup3 extends ViewGroup {
         int maxHeight = 0;
         for(int i = 0; i < childCount; i++) {
             View childView = getChildAt(i);
-            if(maxWidth < childView.getMeasuredWidth()) {
-                maxWidth = childView.getMeasuredWidth();
-            }
+            maxWidth = (maxWidth < childView.getMeasuredWidth()) ? childView.getMeasuredWidth() : maxWidth;
             maxHeight += childView.getMeasuredHeight();
         }
 
-        maxWidth = maxWidth + getPaddingStart() + getPaddingEnd();
-        maxHeight = maxHeight + getPaddingTop() + getPaddingBottom();
+        maxWidth += getPaddingStart() + getPaddingEnd();
+        maxHeight += getPaddingTop() + getPaddingBottom();
 
-        if (widthMode == MeasureSpec.AT_MOST && heightMode == MeasureSpec.AT_MOST) {
-           setMeasuredDimension(maxWidth,maxHeight);
-        } else if (widthMode == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(maxWidth,heigtSpecSize);
-        } else if (heightMode == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(widthSpecSize,maxHeight);
-        } else {
-            setMeasuredDimension(widthSpecSize,heigtSpecSize);
-        }
+        setMeasuredDimension((widthMode == MeasureSpec.AT_MOST) ? maxWidth : widthSpecSize,
+                (heightMode == MeasureSpec.AT_MOST) ? maxHeight : heigtSpecSize);
     }
 
     @Override

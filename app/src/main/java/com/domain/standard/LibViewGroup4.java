@@ -57,25 +57,18 @@ public class LibViewGroup4 extends ViewGroup {
             LibViewGroup4.LayoutParams params = (LayoutParams) childView.getLayoutParams();
             widthMarginSize = params.leftMargin + params.rightMargin;
             heightMarginSize += params.topMargin + params.bottomMargin;
-            if(usedWidth < childView.getMeasuredWidth()){
-                usedWidth = childView.getMeasuredWidth();
-            }
+
+            //永远等于child最宽的那个宽度
+            usedWidth = (usedWidth < childView.getMeasuredWidth()) ? childView.getMeasuredWidth() : usedWidth;
             usedHeight += childView.getMeasuredHeight();
         }
 
-        if (widthMode == MeasureSpec.AT_MOST && heightMode == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(widthPadding + usedWidth + widthMarginSize,
-                    usedHeight + heightPadding + heightMarginSize);
-        } else if (widthMode == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(widthPadding + usedWidth + widthMarginSize,
-                    heightSpecSize + heightPadding + heightMarginSize);
-        } else if (heightMode == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(widthPadding + widthSpecSize + widthMarginSize,
-                    usedHeight + heightPadding + heightMarginSize);
-        } else {
-            setMeasuredDimension(widthSpecSize + widthPadding + widthMarginSize,
-                    heightSpecSize + heightPadding + heightMarginSize);
-        }
+        setMeasuredDimension((widthMode == MeasureSpec.AT_MOST)
+                        ? widthPadding + usedWidth + widthMarginSize
+                        : widthSpecSize + widthPadding + widthMarginSize,
+                (heightMode == MeasureSpec.AT_MOST)
+                        ? usedHeight + heightPadding + heightMarginSize
+                        : heightSpecSize + heightPadding + heightMarginSize);
     }
 
     @Override

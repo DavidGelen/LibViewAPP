@@ -53,24 +53,13 @@ public class LibViewGroup2 extends ViewGroup {
             View childView = getChildAt(i);
 
             //这一句一定要这么写，为什么这么写，请用屁股想
-           /* if(maxWidth < childView.getMeasuredWidth()){
-                maxWidth = childView.getMeasuredWidth();
-            }*/
-
            //我们取所有子view里最宽和最高的值作为我们布局的宽高 很符合"包裹内容"的定义
             maxWidth = childView.getMeasuredWidth() > maxWidth ? childView.getMeasuredWidth() : maxWidth;
             maxHeight += childView.getMeasuredHeight();
         }
 
-        if (widthMode == MeasureSpec.AT_MOST && heightMode == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(maxWidth, maxHeight);
-        } else if (widthMode == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(maxWidth, heightSpecSize);
-        } else if (heightMode == MeasureSpec.AT_MOST) {
-            setMeasuredDimension(widthSpecSize, maxHeight);
-        } else {
-            setMeasuredDimension(widthSpecSize, heightSpecSize);
-        }
+        setMeasuredDimension((widthMode == MeasureSpec.AT_MOST) ? maxWidth : widthSpecSize,
+                (heightMode == MeasureSpec.AT_MOST) ? maxHeight : heightSpecSize);
     }
 
     @Override
