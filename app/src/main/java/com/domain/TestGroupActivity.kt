@@ -7,6 +7,6 @@ class TestGroupActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.test_layout4)
+        setContentView(R.layout.test_layout5)
     }
 }
