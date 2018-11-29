@@ -37,9 +37,11 @@ public class LibOuterIntercept extends ViewGroup {
 
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN: {
-
-                //这个地方不能返回true，一旦返回true后续的所有事件（ACTION_MOVE和ACTION_UP）
-                //都会交给父控件处理，这个时候事件没法在传递给子元素了
+                //onInterceptTouchEvent()只会调用一次，不会重复调用（一旦处理事件之后，后续不会再调用）
+                //这里一定要返回false，如果返回true,事件就不会继续传递
+                //父容器必须返回false，即不拦截ACTION_DOWN事件，
+                //这是因为一旦父容器拦截了ACTION_DOWN，
+                //那么后续的ACTION_MOVE和ACTION_UP事件都会直接交由父容器处理，
                 intercepted = false;
                 break;
             }
@@ -54,6 +56,9 @@ public class LibOuterIntercept extends ViewGroup {
                 break;
             }
             case MotionEvent.ACTION_UP: {
+                //最后是ACTION_UP事件，这里必须要返回false，
+                //因为ACTION_UP事件本身没有太多意义考虑一种情况，假设事件交由子元素处理，如果父容器在ACTION_UP时返回了true，
+                //会导致子元素无法接收到ACTION_UP事件，这个时候子元素中的onClick事件就无法触发，
                 intercepted = false;
                 break;
             }

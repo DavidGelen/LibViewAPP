@@ -1,6 +1,7 @@
 package com.domain.util;
 
 import android.content.Context;
+import android.util.DisplayMetrics;
 
 import com.domain.Application;
 
@@ -32,5 +33,9 @@ public class ScreenUtils {
     public static int pxTodp(int px) {
         final float scale = sContext.getResources().getDisplayMetrics().density;
         return (int) (px / scale + 0.5f);
+    }
+
+    public static void getScreenSize() {
+        //https://blog.csdn.net/yanbober/article/details/50419117/
     }
 }

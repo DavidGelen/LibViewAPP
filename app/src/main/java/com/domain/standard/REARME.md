@@ -15,6 +15,11 @@
 
 ---
 
+如果对View的宽高进行修改了，不要调用 super.onMeasure( widthMeasureSpec, heightMeasureSpec);
+要调用 setMeasuredDimension( widthsize, heightsize)这个函数。
+
+---
+
 measureChildWithMargins()中那两个被赋值为0的两个参数 在android说明中说是为了在平行
 or 垂直布局中设置固定间隔而用的
 
