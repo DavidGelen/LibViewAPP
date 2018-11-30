@@ -110,6 +110,28 @@ ViewGroup类的onLayout()函数是abstract型，继承者必须实现
 
 - 注意，onDraw()每次被调用的时候，原来画布中的内容会被清空。
 
+---
+
+3.3.1：draw是比較简单的，他的作用是将View绘制到屏幕上面，View的绘制过程由如下几个步骤
+
+- 绘制背景
+
+- 绘制自己
+
+- 绘制children
+
+- 绘制装饰
+
+**3.3.2：setwilINotDraw()**
+
+作用：决定onDraw()方法是否会执行。
+无论对于View还是ViewGroup而言，对于自定义而言，
+需要调用onDraw()方法进行绘制东西的话，
+就要在构造方法中明确设置setwilINotDraw（false）;
+不需要调用onDraw()方法的话，也要在构造方法中明确设置setwilINotDraw（true）,系统会进行相应优化。
+
+
+
 
 
 
