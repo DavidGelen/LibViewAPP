@@ -5,8 +5,6 @@ import android.graphics.Rect
 import android.util.DisplayMetrics
 import android.view.ViewGroup
 import android.view.Window
-import android.view.Window.ID_ANDROID_CONTENT
-import android.widget.FrameLayout
 
 
 /**Activity中获取屏幕尺寸*/

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
  * @class describe
  * @anthor David
  * @time 2018/11/17 13:41
- * @class 该ViewGroup系列只展示垂直线性的ViewGroup,不考虑chidView的margin和padding
+ * @class 该ViewGroup系列只展示垂直线性的ViewGroup, 不考虑chidView的margin和padding
  */
 public class LibViewGroup1 extends ViewGroup {
 
@@ -30,7 +30,7 @@ public class LibViewGroup1 extends ViewGroup {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        measureChildren(widthMeasureSpec,heightMeasureSpec);
+        measureChildren(widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override
@@ -38,9 +38,9 @@ public class LibViewGroup1 extends ViewGroup {
         int maxWidth = left;
         int maxHeight = top;
         int childCount = getChildCount();
-        for(int i = 0; i < childCount; i++) {
+        for (int i = 0; i < childCount; i++) {
             View child = getChildAt(i);
-            child.layout(maxWidth,maxHeight,maxWidth + child.getMeasuredWidth(),maxHeight + child.getMeasuredHeight());
+            child.layout(maxWidth, maxHeight, maxWidth + child.getMeasuredWidth(), maxHeight + child.getMeasuredHeight());
             maxHeight += child.getMeasuredHeight();
         }
     }
