@@ -130,7 +130,24 @@ ViewGroup类的onLayout()函数是abstract型，继承者必须实现
 就要在构造方法中明确设置setwilINotDraw（false）;
 不需要调用onDraw()方法的话，也要在构造方法中明确设置setwilINotDraw（true）,系统会进行相应优化。
 
+---
 
+**View的layout()方法用于View确定自己本身在其父View的位置** 
+
+**ViewGroup的onLayout()方法用于确定子View的位置**
+
+---
+### Shader 实现图像的渐变效果
+
+- BitmapShader———图像渲染
+
+- LinearGradient——–线性渲染
+
+- RadialGradient——–环形渲染
+
+- SweepGradient——–扫描渲染
+
+- ComposeShader——组合渲染
 
 
 
