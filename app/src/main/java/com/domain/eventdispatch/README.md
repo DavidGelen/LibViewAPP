@@ -26,3 +26,95 @@
 
 **我的RelativeLayout里面的子View可以接收点击事件，因此点击事件会直接传给他们，无法通过外部设置监听器去拦截。**
 
+---
+
+**View处理Touch事件的总体流程:**
+
+    dispatchTouchEvent() —> onTouch() —> onTouchEvent() —> onClick() 
+    
+**Touch事件最先传入dispatchTouchEvent()中；如果该View存在TouchListener那么会调用该监听器中的onTouch()。
+在此之后如果Touch事件未被消费，则会执行到View的onTouchEvent()方法，在该方法中处理ACTION_UP事件时，
+若该View存在ClickListener则会调用该监听器中的onClick()。**
+
+**onTouch()与onTouchEvent()以及click三者的区别和联系** 
+
+- 2.1 onTouch()与onTouchEvent()都是处理触摸事件的API 
+
+- 2.2 onTouch()属于TouchListener接口中的方法，是View暴露给用户的接口便于处理触摸事件，
+而onTouchEvent()是Android系统自身对于Touch处理的实现 。
+
+- 2.3 先调用onTouch()后调用onTouchEvent()。而且只有当onTouch()未消费Touch事件才有可能调用到onTouchEvent()。
+即onTouch()的优先级比onTouchEvent()的优先级更高。 
+
+- 2.4 在onTouchEvent()中处理ACTION_UP时会利用ClickListener执行Click事件。所以Touch的处理是优先于Click的
+ 
+- 2.5 简单地说三者执行顺序为：onTouch()–>onTouchEvent()–>onClick()
+View没有事件的拦截(onInterceptTouchEvent( ))，ViewGroup才有，请勿混淆 
+
+---
+
+2.1 判断disallowIntercept(禁止拦截)标志位，请参见代码第22行 
+ViewGroup可以拦截Touch事件，但是它的子View可调用getParent().requestDisallowInterceptTouchEvent(true)
+禁止其父View的拦截。
+其实，从这个较长的方法名也可以看出来它的用途——禁止事件拦截；在该方法内部会改变FLAG_DISALLOW_INTERCEPT的值。
+--------------------- 
+
+在此请注意： 
+ViewGroup中的requestDisallowInterceptTouchEvent( )方法可以用来禁止或允许ViewGroup拦截Touch事件，
+但是它对于ACTION_DOWN是无效的。 
+也就是说子View可以禁止父View拦截ACTION_MOVE和ACTION_UP但是无法禁止父View拦截ACTION_DOWN。
+因为在ACTION_DOWN时会调用resetTouchState()重置了FLAG_DISALLOW_INTERCEPT的值导致子View对该值设置失效。
+所以，对于ACTION_DOWN事件ViewGroup总会调用onInterceptTouchEvent()判读是否要拦截Touch事件
+--------------------- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
