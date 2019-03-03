@@ -7,9 +7,14 @@
     android:orientation="vertical"
     tools:context=".TestViewActivity">
 
-    <com.domain.widget.LibDraw6
+    <!--<com.domain.widget.LibDraw6
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" />-->
+
+    <com.domain.vlip.FlipperView
+        android:id="@+id/flipView"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
 
 
 </LinearLayout>
